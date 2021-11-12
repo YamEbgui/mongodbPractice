@@ -17,6 +17,10 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  gender: {
+    type: String,
+    required: true,
+  },
   courses: {
     type: Array,
     required: true,
@@ -25,4 +29,4 @@ const studentSchema = new mongoose.Schema({
 
 const Student = mongoose.model("Student", studentSchema);
 
-module.exports = Agent;
+module.exports = Student;
