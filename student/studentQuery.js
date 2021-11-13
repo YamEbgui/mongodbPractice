@@ -14,7 +14,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log("Connected successfully");
-  UpdateBirthToKoren();
+  StudentsSurNameedWith();
 });
 
 //this function return all students in my mongoDB database
@@ -73,4 +73,27 @@ async function UpdateBirthToKoren() {
       console.log(results);
     }
   );
+}
+
+//this function return any students has "o" letter in his name
+async function StudentsNameedWith() {
+  Student.find({
+    $or: [{ name: { $regex: "o" } }, { name: { $regex: "O" } }],
+  }).then((results) => {
+    console.log(results);
+  });
+}
+
+//this function return any students has "h" ,"y" in the surName
+async function StudentsSurNameedWith() {
+  Student.find({
+    $or: [
+      { surName: { $regex: "y" } },
+      { surName: { $regex: "h" } },
+      { surName: { $regex: "Y" } },
+      { surName: { $regex: "H" } },
+    ],
+  }).then((results) => {
+    console.log(results);
+  });
 }
