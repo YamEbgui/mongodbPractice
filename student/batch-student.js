@@ -45,7 +45,7 @@ const AddStudents = () => {
         courses: ["JavaScript", "Law"],
       },
       {
-        name: "ido",
+        name: "Yahalom",
         surName: "Cohen",
         birth: new Date(1993, 11, 03),
         phone: "0542305392",

@@ -14,7 +14,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log("Connected successfully");
-  returnAllFemaleJavaStudents();
+  UpdateBirthToKoren();
 });
 
 //this function return all students in my mongoDB database
@@ -59,4 +59,18 @@ async function returnPhones() {
   Student.find({ phone: { $regex: "054" } }).then((results) => {
     console.log(results);
   });
+}
+
+//this function add JS course to any student named Yahalom in my mongoDB database
+async function UpdateToJS() {
+  Student.updateMany({ name: "Yahalom" }, { $push: { courses: "JavaScript" } });
+}
+
+//this function change birth day to any student named Koren to 02/12/1998
+async function UpdateBirthToKoren() {
+  Student.updateMany({ name: "Koren" }, { birth: new Date(1998, 11, 03) }).then(
+    (results) => {
+      console.log(results);
+    }
+  );
 }
