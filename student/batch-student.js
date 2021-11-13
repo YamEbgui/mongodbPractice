@@ -23,7 +23,7 @@ const AddStudents = () => {
       {
         name: "Chen",
         surName: "Halevi",
-        birth: 11 / 03 / 1997,
+        birth: new Date(1997, 5, 5),
         phone: "0526323421",
         gender: "Male",
         courses: ["Math", "Law"],
@@ -31,7 +31,7 @@ const AddStudents = () => {
       {
         name: "Koren",
         surName: "Gan - or",
-        birth: 19 / 01 / 1997,
+        birth: new Date(1997, 1, 19),
         phone: "0526305321",
         gender: "Male",
         courses: ["JavaScript", "Finance", "Law"],
@@ -39,15 +39,15 @@ const AddStudents = () => {
       {
         name: "Oryan",
         surName: "Levy",
-        birth: 02 / 04 / 1998,
+        birth: new Date(1998, 04, 02),
         phone: "0542305321",
         gender: "Male",
         courses: ["JavaScript", "Law"],
       },
       {
-        name: "Yahalom",
+        name: "ido",
         surName: "Cohen",
-        birth: 03 / 11 / 1993,
+        birth: new Date(1993, 11, 03),
         phone: "0542305392",
         gender: "Female",
         courses: ["Java", "Law"],
