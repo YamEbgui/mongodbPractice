@@ -7,7 +7,7 @@ const dotenv = require("dotenv").config();
 const faker = require("faker");
 
 mongoose.connect(
-  `mongodb+srv://yam:yamivgi8947@database.foklg.mongodb.net/practiceData?retryWrites=true&w=majority`,
+  `mongodb+srv://yam:${process.env.PASSWORD}@database.foklg.mongodb.net/practiceData?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
   }

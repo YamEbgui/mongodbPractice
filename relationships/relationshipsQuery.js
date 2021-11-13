@@ -6,7 +6,7 @@ const Comment = require("./collections").Comment;
 const dotenv = require("dotenv").config();
 
 mongoose.connect(
-  `mongodb+srv://yam:yamivgi8947@database.foklg.mongodb.net/practiceData?retryWrites=true&w=majority`,
+  `mongodb+srv://yam:${process.env.PASSWORD}@database.foklg.mongodb.net/practiceData?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
   }
@@ -16,7 +16,6 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log("Connected successfully");
-  returnCommentsForPost(postTitle);
 });
 
 function returnAllUsers() {
@@ -64,3 +63,4 @@ function returnCommentsForPost(postTitle) {
     }
   });
 }
+console.log(`${process.env.PASSWORD}`);
