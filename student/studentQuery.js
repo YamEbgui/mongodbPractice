@@ -14,7 +14,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log("Connected successfully");
-  StudentsSurNameedWith();
+  deleteAllStudentWiththisBirth();
 });
 
 //this function return all students in my mongoDB database
@@ -94,6 +94,20 @@ async function StudentsSurNameedWith() {
       { surName: { $regex: "H" } },
     ],
   }).then((results) => {
+    console.log(results);
+  });
+}
+
+//this function delete all students named Ido
+async function deleteAllStudentsNamedIdo() {
+  Student.deleteMany({ name: "Ido" }).then((results) => {
+    console.log(results);
+  });
+}
+
+//this function delete all students they birth day is 02-04-1998
+async function deleteAllStudentWiththisBirth() {
+  Student.deleteMany({ birth: new Date(1998, 03, 03) }).then((results) => {
     console.log(results);
   });
 }
